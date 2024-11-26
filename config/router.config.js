@@ -29,6 +29,7 @@ export default [
       { path: '/adminCenter', redirect: '/adminCenter/cateManage' },
       { path: '/adminCenter/cateManage', component: './cateManage/index' },
       { path: '/adminCenter/messageSender', component: './messageSender/index' },
+      
     ],
   },
   {

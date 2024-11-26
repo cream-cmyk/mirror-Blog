@@ -211,7 +211,7 @@ class ArticleEdit extends Component<ArticleEditProps> {
 
     if (checked) {
       confirm({
-        title: '原创不易，建议只有原创或享有版权的文章才开启打赏功能，是否开启?',
+        title: '创作不易，建议只有原创或享有版权的文章才开启打赏功能，是否开启?',
         content: 'Tip: 只有在个人中心设置了收钱码才能使用收钱功能',
         onOk: () => {
           handler();

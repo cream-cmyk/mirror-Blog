@@ -122,8 +122,9 @@ export default {
     * update({ payload }, { call, put }) {
       const { success, msg } = yield call(update, payload);
       if (success) {
-        message.success('修改个人资料成功，请重新登录');
-        yield put(routerRedux.push('/user/login'));
+        message.success('修改个人资料成功！');
+         // 不再跳转到登录页面，保持当前页面
+        //yield put(routerRedux.push('/user/login'));
       } else {
         message.error(msg);
       }

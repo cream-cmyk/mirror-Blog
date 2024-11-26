@@ -31,8 +31,7 @@ export interface PersonCenterProps {
   dispatch: Dispatch;
 }
 
-class PersonCenter extends Component<PersonCenterProps, {}> {
-
+class PersonCenter extends Component<PersonCenterProps, { motto: string }> {
   static propTypes = {
     user: PropTypes.object,
     dispatch: PropTypes.func,
@@ -51,7 +50,9 @@ class PersonCenter extends Component<PersonCenterProps, {}> {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      motto: props.user.motto || '', // 初始化值
+    };
   }
 
   /**
@@ -82,7 +83,7 @@ class PersonCenter extends Component<PersonCenterProps, {}> {
   }
 
   saveMotto = () => {
-    const motto = this.mottoInput.textAreaRef.value;
+    const{ motto} = this.state;
     const { uid } = this.props.user;
 
     if (motto) {
@@ -91,10 +92,14 @@ class PersonCenter extends Component<PersonCenterProps, {}> {
       message.error('请输入座右铭');
     }
   }
+  handleMottoChange = (e) => {
+    this.setState({ motto: e.target.value });
+  };
 
   render() {
+    const { motto } = this.state;
     const { user } = this.props;
-    const { avatar, cover, motto, moneyCode } = user;
+    const { avatar, cover, moneyCode } = user;
     const uploadButton = (
       <div>
         <Icon type="plus" />
@@ -136,8 +141,8 @@ class PersonCenter extends Component<PersonCenterProps, {}> {
           <div className={style.title}>座右铭</div>
           <div className={style.motto}>
             <TextArea
-              ref={input => this.mottoInput = input}
-              defaultValue={motto}
+              value={motto} // 使用value绑定到state
+              onChange={this.handleMottoChange} // 监听变化
               placeholder="请输入100个字符内的座右铭"
               autosize={{ minRows: 2, maxRows: 4 }}
               maxLength={100}

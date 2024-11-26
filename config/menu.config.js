@@ -42,10 +42,6 @@ export default {
       name: '发送站内信',
       icon: 'send',
     },
-    {
-      key: 'approval',
-      name: '审批管理',
-      icon: 'user-approval',
-    }
+   
   ],
 };

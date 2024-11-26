@@ -214,7 +214,10 @@ class TeamPage extends Component<TeamProps, TeamState> {
       dispatch,
     } = this.props;
     const { modalVisible, inviteModalVisible, currentMember, alreadyInvited } = this.state;
-    const memberList = users.filter(item => item.tid === team.tid) || [];
+    //const memberList = users.filter(item => item.tid === team.tid) || [];
+    //数据类型转换实现查询团队成员
+    const memberList = users.filter(item => item.tid === Number(team.tid)) || [];
+
     const notTeamUsers = users.filter(v => !v.tid && !alreadyInvited.find(a => a === v.uid)) || [];
     const { tid } = team;
     const toPersonalPage = (uid) => {

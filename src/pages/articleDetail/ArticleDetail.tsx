@@ -149,7 +149,7 @@ class ArticleDetail extends Component<ArticleDetailProps, ArticleDetailState> {
                 onMouseEnter={this.moneyCodeVisiableChange.bind(this, true)}
                 onMouseLeave={this.moneyCodeVisiableChange.bind(this, false)}
               >
-                <div className={styles.tip}>原创不易，请Ta喝杯咖啡</div>
+                <div className={styles.tip}>创作不易，请Ta喝杯咖啡</div>
                 <IconFont type="shang" fontSize="64px" />
               </div>
               <img

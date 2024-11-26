@@ -190,7 +190,7 @@ class Header extends React.PureComponent<HeaderProps, {}> {
                 {+role === 1 && <Menu.Item key="/adminCenter/cateManage">
                   <span>管理员中心</span>
                 </Menu.Item>}
-                <Menu.Item key="logout">注销</Menu.Item>
+                <Menu.Item key="logout">退出</Menu.Item>
               </SubMenu> :
               <Menu.Item key="login">
                 <span className={styles.loginBtn}>登录</span>

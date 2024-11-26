@@ -13,7 +13,12 @@ export default {
 
   state: {
     list: [], // 团队列表
-    team: {}, // 当前的团队
+    // team: {}, // 当前的团队
+    team: {
+      tid: '',
+      teamName: '',
+      members: [],
+    },
   },
 
   effects: {
@@ -43,6 +48,8 @@ export default {
         });
       } else {
         message.error(msg);
+
+        yield put(routerRedux.push('/team/error')); // 跳转到错误页或提示页
       }
     },
     * save({ payload }, { call }) {
@@ -65,11 +72,17 @@ export default {
         list,
       };
     },
-    getDetailSuccess(state, action) {
-      const team = action.payload;
+    // getDetailSuccess(state, action) {
+    //   const team = action.payload;
+    //   return {
+    //     ...state,
+    //     team,
+    //   };
+    // },
+    getDetailSuccess(state, { payload }) {
       return {
         ...state,
-        team,
+        team: payload || { tid: '', teamName: '', members: [] },
       };
     },
   },
