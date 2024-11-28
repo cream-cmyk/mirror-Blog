@@ -49,8 +49,6 @@ export interface Comment {
   updateTime: string
   isDeleted: number
   replyList: Reply[]
-
-  is_deleted?: boolean;
 }
 
 export interface Cate {
