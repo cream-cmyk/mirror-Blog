@@ -209,7 +209,7 @@ class PersonCenter extends Component<PersonCenterProps, PersonCenterState> {
                 <Input placeholder="请输入标题" value={title} onChange={this.titleChange} />
               </Col>
               <Col span={10}>
-                时间：<RangePicker
+                <RangePicker
                   value={from ? [moment(from), moment(to)] : null}
                   onChange={this.timeRangeChange}
                   allowClear={false}

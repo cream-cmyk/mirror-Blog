@@ -202,7 +202,7 @@ class PersonalFeedback extends Component<PersonalFeedbackProps, PersonalFeedback
                 <Input placeholder="请输入标题" value={keyword} onChange={this.titleChange} />
               </Col>
               <Col span={10}>
-                时间：<RangePicker
+                <RangePicker
                   value={[moment(from), moment(to)]}
                   onChange={this.timeRangeChange}
                   allowClear={false}

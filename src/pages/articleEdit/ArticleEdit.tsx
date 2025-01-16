@@ -152,7 +152,7 @@ class ArticleEdit extends Component<ArticleEditProps> {
 
   leaveHandler = (nextLocation) => {
     const { location } = this.props;
-    return nextLocation.pathname === location.pathname ? false : '文章还未保存，是否离开当前页面？';
+    return nextLocation.pathname === location.pathname ? false : '是否离开当前页面，含有未保存的内容可能会丢失？';
   }
 
   handleClose = (removedTag) => {

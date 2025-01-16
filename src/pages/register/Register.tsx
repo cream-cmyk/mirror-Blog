@@ -46,9 +46,9 @@ const Register = ({
           <FormItem hasFeedback>
             {getFieldDecorator('nickname', {
               rules: [
-                { required: true, message: '请填写花名' },
+                { required: true, message: '请填写昵称' },
               ],
-            })(<Input size="large" onPressEnter={handleOk} placeholder="花名" />)}
+            })(<Input size="large" onPressEnter={handleOk} placeholder="昵称" />)}
           </FormItem>
           <FormItem hasFeedback>
             {getFieldDecorator('email', {
@@ -61,6 +61,10 @@ const Register = ({
             {getFieldDecorator('password', {
               rules: [
                 { required: true, message: '请创建密码' },
+                {
+                  pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$/,
+                  message: '密码需包含至少8位字符，包括大小写字母、数字和特殊符号',
+                },
               ],
             })(<Input size="large" type="password" onPressEnter={handleOk} placeholder="密码" />)}
           </FormItem>
