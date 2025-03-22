@@ -47,6 +47,10 @@ const Register = ({
             {getFieldDecorator('nickname', {
               rules: [
                 { required: true, message: '请填写昵称' },
+                {
+                  pattern: /^[a-zA-Z0-9_\u4e00-\u9fa5-]{2,20}$/,
+                  message: '昵称应为2到20个字符，可以包含字母、数字、中文、下划线和连字符',
+                }
               ],
             })(<Input size="large" onPressEnter={handleOk} placeholder="昵称" />)}
           </FormItem>
@@ -54,6 +58,10 @@ const Register = ({
             {getFieldDecorator('email', {
               rules: [
                 { required: true, message: '请填写邮箱' },
+                {
+                  pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: '请输入有效的邮箱地址',
+                },
               ],
             })(<Input size="large" type="email" onPressEnter={handleOk} placeholder="邮箱" />)}
           </FormItem>
